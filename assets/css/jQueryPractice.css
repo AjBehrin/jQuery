@@ -1,8 +1,10 @@
 .globalError {
-    background-color: red;
-    color: black;
+  background-color: red;
+  color: black;
 }
-
 .lightHover {
-    background-color: #ccc;
+  background-color: #ccc;
+}
+h2 {
+  color: blue;
 }

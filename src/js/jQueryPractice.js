@@ -19,14 +19,14 @@ $(document).ready(function() {
     // more attr() practice
     $('#changeImage').click(function(){
         $('img').attr({
-            src: 'images/fireicon.png',
+            src: '../assets/images/fireicon.png',
             alt: 'fire icon',
             title: 'fire icon'
         });
     });
     $('#changeBack').click(function(){
         $('img').attr({
-            src: 'images/airicon.png',
+            src: '../assets/images/airicon.png',
             alt: 'air icon',
             title: 'air icon'
         });

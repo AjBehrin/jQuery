@@ -1,34 +1,47 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
-      jshint: {
-        files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
-        options: {
-          globals: {
-            jQuery: true
-          }
+      watch: {
+        less: {
+          files: ['assets/css/jQueryPractice.less'],
+          tasks: ['less'],
+        },
+      },
+      less: {
+        default: {
+          files: [
+            {
+              expand: true,
+              src: 'assets/css/jQueryPractice.less',
+              ext: '.css'
+            }
+          ] 
         }
       },
-      watch: {
-        files: ['<%= jshint.files %>'],
-        tasks: ['jshint']
-      },
       browserSync: {
-        bsFiles: {
-            src : 'assets/css/*.css'
-        },
-        options: {
-            server: {
-                baseDir: "./"
-                }
-            }
+        dev: {
+          bsFiles: {
+              src: [
+                'assets/css/*.less',
+                'app/*.html'
+              ]
+          },
+          options: {
+              watchTask : true,
+              server: {
+                  baseDir: 'app',
+                  directory: true
+                  }
+              }
+          }
     }
     });
-  
-    grunt.loadNpmTasks('grunt-contrib-jshint');
+    
+    // Plugins
+    // grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-browser-sync');
   
-    grunt.registerTask('default', ['jshint']);
-  
+    grunt.registerTask('default', ['browserSync', 'watch']);
   };
