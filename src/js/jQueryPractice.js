@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    // Test to see if the .length method is valid on selected elements
+    // alert($(':input').length);
     
     // append / prepend / wrap functions
     // $('h2').wrap('<div style="background-color: yellow"></div>');
